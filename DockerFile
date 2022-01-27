@@ -1,0 +1,22 @@
+FROM node:16-slim as BUILDER
+LABEL mainteiner="Bruno Germano"
+
+WORKDIR /ust/src/app
+
+#Install app dependencies
+COPY package*.json ./
+RUN ndm Install
+
+COPY src ./src
+
+FROM node:16-alphine
+
+ARG NODE_ENV
+
+WORKDIR /usr/src/app
+
+COPY --from=BUULDER .usr/src/app ./
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
