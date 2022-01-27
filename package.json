@@ -16,7 +16,7 @@
     "express",
     "demo"
   ],
-  "author": "Daniel Simiao (danielsimi@hotmail.com)",
+  "author": "Daniel Simiao <danielsimi@hotmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/simiaoNetshoes/setup-nodejs/issues"

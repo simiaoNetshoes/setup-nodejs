@@ -1,0 +1,1 @@
+Setup to basicly work with node.js project

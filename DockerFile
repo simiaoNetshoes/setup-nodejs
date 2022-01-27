@@ -1,22 +1,22 @@
-FROM node:16-slim as BUILDER
-LABEL mainteiner="Bruno Germano"
+FROM node:16-slim as BUILDER 
+LABEL maintainer="Bruno Germano"
 
-WORKDIR /ust/src/app
+WORKDIR /usr/src/app
 
-#Install app dependencies
+# Install app dependencies
 COPY package*.json ./
-RUN ndm Install
+RUN npm install
 
 COPY src ./src
 
-FROM node:16-alphine
+FROM node:16-alpine
 
 ARG NODE_ENV
 
 WORKDIR /usr/src/app
 
-COPY --from=BUULDER .usr/src/app ./
+COPY --from=BUILDER /usr/src/app/ ./
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD [ "npm", "start" ]
